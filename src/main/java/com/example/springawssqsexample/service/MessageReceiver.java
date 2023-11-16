@@ -19,7 +19,7 @@ public class MessageReceiver {
   @Autowired
   private SqsTemplate sqsTemplate;
 
-  @SqsListener("HowToDoInJava")
+  @SqsListener("test-queue")
   public void listen(Message<?> message) {
     /*
      * LOGGER.info("Message received on listen method at {}", OffsetDateTime.now());
@@ -35,6 +35,6 @@ public class MessageReceiver {
    /*
    public void receive(){
         sqsTemplate
-                .receive(from -> from.queue("HowToDoInJava") );
+                .receive(from -> from.queue("test-queue") );
     }*/
 }

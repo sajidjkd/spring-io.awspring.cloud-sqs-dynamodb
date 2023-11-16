@@ -15,7 +15,7 @@ public class MessageSender {
     sqsTemplate
     .send(sqsSendOptions ->
         sqsSendOptions
-            .queue("HowToDoInJava")
+            .queue("test-queue")
             .payload(message)
     );
   }
