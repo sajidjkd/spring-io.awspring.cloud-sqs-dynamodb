@@ -20,32 +20,6 @@ public class SqsConfig {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(SqsConfig.class);
 
-  //@Value("${spring.cloud.aws.credentials.access-key}")
-  //private String accessKey;
-
-  //@Value("${spring.cloud.aws.credentials.secret-key}")
-  //private String secretKey;
-
-  //@Value("${spring.cloud.aws.region.static}")
-  //private String region;
-
-    /*
-    @Bean
-    SqsAsyncClient sqsAsyncClient(){
-        return SqsAsyncClient
-                .builder()
-                .region(Region.of(region))
-                .credentialsProvider(StaticCredentialsProvider
-                        .create(AwsBasicCredentials.create(accessKey, secretKey)))
-                .build();
-        // add more Options
-    }
-
-    @Bean
-    public SqsTemplate sqsTemplate(SqsAsyncClient sqsAsyncClient){
-        return SqsTemplate.builder().sqsAsyncClient(sqsAsyncClient).build();
-    }*/
-
   @Bean
   SqsMessageListenerContainerFactory<Object> defaultSqsListenerContainerFactory(
       SqsAsyncClient sqsAsyncClient) {
