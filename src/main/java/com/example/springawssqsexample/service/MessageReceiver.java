@@ -6,6 +6,7 @@ import io.awspring.cloud.sqs.operations.SqsTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,13 @@ public class MessageReceiver {
   @Autowired
   private SqsTemplate sqsTemplate;
 
+  @Value("${microservice.albUrl}")
+  public String apiUrl;
+
   @SqsListener(value = "test-queue")
   public void listen(Message<?> message) {
+
+    System.out.println("apiUrl>>>>>>>>>>>>>>>:::"+apiUrl);
 
     LOGGER.info("Message received on listen method at {} and message was {}", OffsetDateTime.now(), message);
     //Acknowledgement.acknowledge(message);
